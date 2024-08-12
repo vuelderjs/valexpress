@@ -1,0 +1,11 @@
+query roleFetch {
+    roleFetch {
+        id
+        name
+        permissions {
+            id
+            name
+        }
+        createdBy
+    }
+}

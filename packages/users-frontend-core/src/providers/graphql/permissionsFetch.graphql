@@ -1,0 +1,6 @@
+query permissionsFetch{
+    permissionsFetch{
+        id
+        name
+    }
+}

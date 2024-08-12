@@ -1,0 +1,11 @@
+mutation roleCreate($payload: RoleCreateInput!){
+    roleCreate(payload: $payload){
+        id
+        name
+        permissions{
+            id
+            name
+        }
+        createdBy
+    }
+}

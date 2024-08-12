@@ -1,0 +1,20 @@
+{
+  "name": "@valexpress/users-frontend-core",
+  "version": "0.2.0",
+  "main": "dist/valexpress-users-frontend-core.umd.js",
+  "module": "dist/valexpress-users-frontend-core.es.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {  
+    "zod": "3.23.8"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.3",
+    "vite": "^5.4.0",
+    "vite-plugin-graphql-loader": "4.0.2"
+  }
+}

@@ -1,4 +1,4 @@
-import { JwtService, UnauthenticatedError, UnauthorizedError } from "@valexpress/common-backend/src"
+import { JwtService, UnauthenticatedError, UnauthorizedError } from "@valexpress/common-backend"
 import UserService from "../services/UserService"
 import { IUser } from "../models/interfaces/IUser"
 

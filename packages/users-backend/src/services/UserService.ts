@@ -1,6 +1,6 @@
 import User from '../models/User'
 import RoleService from '../models/Role' 
-import { HashingService, JwtService, NotFoundError, UnauthenticatedError } from '@valexpress/common-backend/src'
+import { HashingService, JwtService, NotFoundError, UnauthenticatedError } from '@valexpress/common-backend'
 import { IUser } from '../models/interfaces/IUser'
 import { UserInput } from '../types/UserInput'
 import mongoose from 'mongoose'

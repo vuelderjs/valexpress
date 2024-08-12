@@ -2,7 +2,12 @@
   "$schema": "node_modules/lerna/schemas/lerna-schema.json",
   "version": "0.5.0",
   "packages": [
-    "packages/*"
+    "packages/common-backend",
+    "packages/common-frontend-core",
+    "packages/common-frontend-vue",
+    "packages/users-backend",
+    "packages/users-frontend-core",
+    "packages/users-frontend-vue"
   ],
   "ignore": "scaffold"
 }

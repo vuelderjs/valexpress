@@ -8,8 +8,7 @@
     "v-publish": "npm run v-version && npx lerna exec -- npm publish --access public"
   },
   "workspaces": [
-    "packages/*",
-    "scaffold/apps/*"
+    "packages/*"
   ],
   "dependencies": {},
   "devDependencies": {

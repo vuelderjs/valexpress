@@ -1,0 +1,13 @@
+type Permission {
+    id: ID!
+    name: String!
+}
+
+input PermissionInput {
+    id: ID!
+    name: String!
+}
+
+type Query {
+    permissionsFetch: [Permission]
+}

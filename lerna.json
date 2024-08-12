@@ -3,12 +3,5 @@
   "version": "0.1.0",
   "packages": [
     "packages/*"
-  ],
-  "command": {
-    "publish": {
-      "lifecycle": {
-        "prepublish": "npm run build"
-      }
-    }
-  }
+  ]
 }

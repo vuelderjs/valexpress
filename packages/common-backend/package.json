@@ -10,8 +10,6 @@
     "author": "Alex Valdiviezo & vuelderjs team",
     "license": "ISC",
     "dependencies": {
-        "@graphql-tools/load-files": "^7.0.0",
-        "@graphql-tools/merge": "^9.0.4",
         "bcryptjs": "^2.4.3",
         "graphql-tag": "^2.12.6",
         "jsonwebtoken": "^9.0.2"

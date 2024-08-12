@@ -5,7 +5,7 @@
     "v-install": "npx lerna exec -- npm install",
     "v-build": "npx lerna exec -- npm run build",
     "v-version": "npm run v-build && npx lerna version",
-    "v-publish": "npm run v-build && npx lerna publish from-package --yes"
+    "v-publish": "npm run v-version && npx lerna exec -- npm publish --access public"
   },
   "workspaces": [
     "packages/*"

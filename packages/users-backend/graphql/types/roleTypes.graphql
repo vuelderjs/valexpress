@@ -1,0 +1,26 @@
+type Role {
+    id: ID!
+    name: String!
+    permissions: [Permission]!
+    createdBy: String!
+}
+
+type Query {
+    roleFetch: [Role]
+}
+
+type Mutation {
+    roleCreate(payload: RoleCreateInput!): Role
+    roleUpdate(id: ID!, payload: RoleUpdateInput!): Role
+    roleDelete(id: ID!): Role
+}
+
+input RoleCreateInput {
+    name: String!
+    permissions: [ID]!
+}
+
+input RoleUpdateInput {
+    name: String!
+    permissions: [ID]!
+}

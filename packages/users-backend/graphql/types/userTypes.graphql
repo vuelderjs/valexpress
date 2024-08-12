@@ -1,0 +1,57 @@
+type User {
+    id: ID!
+    email: String!
+    role: Role!
+    name: String
+    surname: String
+    enable: Boolean
+}
+
+type UserFetch {
+    docs: [User]!
+    page: Int!
+    limit: Int!
+    total: Int!
+}
+
+type Query {
+    userLogin(payload: UserLoginInput!): String!
+    userFetch(filters: UserFetchFiltersInput, sortBy: String, sortDesc: Boolean, limit: Int, page: Int): UserFetch
+    userGetSession: User
+}
+
+type Mutation {
+    userCreate(payload: UserCreateInput!): User!
+    userUpdate(id: ID!, payload: UserUpdateInput!): User!
+}
+
+input UserFetchFiltersInput {
+    email: String
+    name: String
+    surname: String
+    role: ID
+    enable: Boolean
+}
+
+input UserLoginInput {
+    email: String!
+    password: String!
+}
+
+input UserCreateInput {
+    email: String!
+    password: String!
+    role: ID!
+    name: String
+    surname: String
+    enable: Boolean
+}
+
+input UserUpdateInput {
+    email: String
+    password: String
+    role: ID
+    name: String
+    surname: String
+    enable: Boolean
+}

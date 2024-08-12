@@ -1,5 +1,0 @@
-{
-    "watch": ["src"],
-    "ext": "ts,graphql",
-    "exec": "node -r ts-node/register --env-file=.env src/index.ts"
-}

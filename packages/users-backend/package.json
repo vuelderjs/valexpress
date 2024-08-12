@@ -2,10 +2,9 @@
   "name": "@valexpress/users-backend",
   "version": "0.3.0",
   "description": "",
-  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": ""
   },
   "keywords": [],
   "author": "Alex Valdiviezo & vuelderjs team",

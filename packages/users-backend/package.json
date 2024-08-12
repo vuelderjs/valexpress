@@ -2,9 +2,10 @@
   "name": "@valexpress/users-backend",
   "version": "0.4.0",
   "description": "",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": ""
+    "build": "tsc && cp ./src/graphql/types ./dist/graphql -r"
   },
   "keywords": [],
   "author": "Alex Valdiviezo & vuelderjs team",
@@ -12,7 +13,7 @@
   "dependencies": {
     "@graphql-tools/load-files": "7.0.0",
     "@graphql-tools/merge": "9.0.4",
-    "@valexpress/common-backend": "file:../common-backend",
+    "@valexpress/common-backend": "file:../common-backend/dist",
     "mongoose": "8.5.2",
     "mongoose-paginate-v2": "1.8.3"
   },

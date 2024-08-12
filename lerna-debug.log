@@ -1,20 +1,121 @@
 0 silly argv {
-0 silly argv   _: [ 'create' ],
+0 silly argv   _: [ 'version' ],
 0 silly argv   lernaVersion: '8.1.8',
-0 silly argv   '$0': 'node_modules/.bin/lerna',
-0 silly argv   name: 'common-backen'
+0 silly argv   '$0': 'node_modules/.bin/lerna'
 0 silly argv }
 1 notice cli v8.1.8
-2 verbose packageConfigs Resolving packages based on package.json "workspaces" configuration.
-3 verbose rootPath /home/alex-sondeos/Desktop/vuelders/vuelderjs
-4 warn ENOREMOTE No git remote found, skipping repository property
-5 error Error: canceled
-5 error     at Interface.<anonymous> (/home/alex-sondeos/Desktop/vuelders/vuelderjs/node_modules/read/dist/commonjs/read.js:89:21)
-5 error     at Interface.emit (node:events:518:28)
-5 error     at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1125:18)
-5 error     at ReadStream.onkeypress (node:internal/readline/interface:264:20)
-5 error     at ReadStream.emit (node:events:518:28)
-5 error     at emitKeys (node:internal/readline/utils:371:14)
-5 error     at emitKeys.next (<anonymous>)
-5 error     at ReadStream.onData (node:internal/readline/emitKeypressEvents:64:36)
-5 error     at ReadStream.emit (node:events:518:28)
+2 verbose packageConfigs Explicit "packages" configuration found in lerna.json. Resolving packages using the configured glob(s): ["packages/*"]
+3 verbose rootPath /home/alex-sondeos/Desktop/vuelders/valexpress
+4 info current version 0.4.0
+5 silly isAnythingCommitted
+6 verbose isAnythingCommitted 1
+7 silly getCurrentBranch
+8 verbose currentBranch master
+9 silly remoteBranchExists
+10 silly isBehindUpstream
+11 silly isBehindUpstream master is behind origin/master by 0 commit(s) and ahead by 2
+12 silly hasTags
+13 verbose hasTags true
+14 silly git-describe.sync "v0.4.0-2-g65818e9" => {"lastTagName":"v0.4.0","lastVersion":"v0.4.0","refCount":"2","sha":"65818e9","isDirty":false}
+15 info Looking for changed packages since v0.4.0
+16 silly checking diff packages/common-backend
+17 silly found diff in packages/common-backend/.npmignore
+17 silly found diff in packages/common-backend/package.json
+17 silly found diff in packages/common-backend/src/errors/index.ts
+17 silly found diff in packages/common-backend/src/index.ts
+17 silly found diff in packages/common-backend/src/services/HashingService.ts
+17 silly found diff in packages/common-backend/src/services/JwtService.ts
+18 verbose filtered diff [
+18 verbose filtered diff   'packages/common-backend/.npmignore',
+18 verbose filtered diff   'packages/common-backend/package.json',
+18 verbose filtered diff   'packages/common-backend/src/errors/index.ts',
+18 verbose filtered diff   'packages/common-backend/src/index.ts',
+18 verbose filtered diff   'packages/common-backend/src/services/HashingService.ts',
+18 verbose filtered diff   'packages/common-backend/src/services/JwtService.ts'
+18 verbose filtered diff ]
+19 silly checking diff packages/common-frontend-core
+20 silly no diff found in @valexpress/common-frontend-core
+21 silly checking diff packages/common-frontend-vue
+22 silly no diff found in @valexpress/common-frontend-vue
+23 silly checking diff packages/users-backend
+24 silly found diff in packages/users-backend/.npmignore
+24 silly found diff in packages/users-backend/package.json
+24 silly found diff in packages/users-backend/src/context/AuthenticationContext.ts
+24 silly found diff in packages/users-backend/src/graphql/index.ts
+24 silly found diff in packages/users-backend/src/graphql/resolvers/permissionResolvers.ts
+24 silly found diff in packages/users-backend/src/graphql/resolvers/roleResolvers.ts
+24 silly found diff in packages/users-backend/src/graphql/resolvers/userResolvers.ts
+24 silly found diff in packages/users-backend/src/graphql/types/permissionTypes.graphql
+24 silly found diff in packages/users-backend/src/graphql/types/roleTypes.graphql
+24 silly found diff in packages/users-backend/src/graphql/types/userTypes.graphql
+24 silly found diff in packages/users-backend/src/index.ts
+24 silly found diff in packages/users-backend/src/models/Permission.ts
+24 silly found diff in packages/users-backend/src/models/Role.ts
+24 silly found diff in packages/users-backend/src/models/User.ts
+24 silly found diff in packages/users-backend/src/models/interfaces/IUser.ts
+24 silly found diff in packages/users-backend/src/permissions/index.ts
+24 silly found diff in packages/users-backend/src/services/PermissionsService.ts
+24 silly found diff in packages/users-backend/src/services/RoleService.ts
+24 silly found diff in packages/users-backend/src/services/UserService.ts
+24 silly found diff in packages/users-backend/src/types/UserInput.ts
+25 verbose filtered diff [
+25 verbose filtered diff   'packages/users-backend/.npmignore',
+25 verbose filtered diff   'packages/users-backend/package.json',
+25 verbose filtered diff   'packages/users-backend/src/context/AuthenticationContext.ts',
+25 verbose filtered diff   'packages/users-backend/src/graphql/index.ts',
+25 verbose filtered diff   'packages/users-backend/src/graphql/resolvers/permissionResolvers.ts',
+25 verbose filtered diff   'packages/users-backend/src/graphql/resolvers/roleResolvers.ts',
+25 verbose filtered diff   'packages/users-backend/src/graphql/resolvers/userResolvers.ts',
+25 verbose filtered diff   'packages/users-backend/src/graphql/types/permissionTypes.graphql',
+25 verbose filtered diff   'packages/users-backend/src/graphql/types/roleTypes.graphql',
+25 verbose filtered diff   'packages/users-backend/src/graphql/types/userTypes.graphql',
+25 verbose filtered diff   'packages/users-backend/src/index.ts',
+25 verbose filtered diff   'packages/users-backend/src/models/Permission.ts',
+25 verbose filtered diff   'packages/users-backend/src/models/Role.ts',
+25 verbose filtered diff   'packages/users-backend/src/models/User.ts',
+25 verbose filtered diff   'packages/users-backend/src/models/interfaces/IUser.ts',
+25 verbose filtered diff   'packages/users-backend/src/permissions/index.ts',
+25 verbose filtered diff   'packages/users-backend/src/services/PermissionsService.ts',
+25 verbose filtered diff   'packages/users-backend/src/services/RoleService.ts',
+25 verbose filtered diff   'packages/users-backend/src/services/UserService.ts',
+25 verbose filtered diff   'packages/users-backend/src/types/UserInput.ts'
+25 verbose filtered diff ]
+26 silly checking diff packages/users-frontend-core
+27 silly no diff found in @valexpress/users-frontend-core
+28 silly checking diff packages/users-frontend-vue
+29 silly no diff found in @valexpress/users-frontend-vue
+30 verbose updated @valexpress/common-backend
+31 verbose updated @valexpress/users-backend
+32 verbose git-describe undefined => "v0.4.0-2-g65818e9"
+33 silly git-describe parsed => {"lastTagName":"v0.4.0","lastVersion":"v0.4.0","refCount":"2","sha":"65818e9","isDirty":false}
+34 info execute Skipping releases
+35 silly lifecycle No script for "preversion" in "root", continuing
+36 silly lifecycle No script for "preversion" in "@valexpress/common-backend", continuing
+37 silly lifecycle No script for "preversion" in "@valexpress/common-frontend-core", continuing
+38 silly lifecycle No script for "preversion" in "@valexpress/common-frontend-vue", continuing
+39 silly lifecycle No script for "preversion" in "@valexpress/users-backend", continuing
+40 silly lifecycle No script for "preversion" in "@valexpress/users-frontend-core", continuing
+41 verbose version @valexpress/common-backend has no lockfile. Skipping lockfile update.
+42 verbose version @valexpress/common-frontend-core has no lockfile. Skipping lockfile update.
+43 verbose version @valexpress/common-frontend-vue has no lockfile. Skipping lockfile update.
+44 verbose version @valexpress/users-backend has no lockfile. Skipping lockfile update.
+45 verbose version @valexpress/users-frontend-core has no lockfile. Skipping lockfile update.
+46 silly lifecycle No script for "version" in "@valexpress/common-frontend-core", continuing
+47 silly lifecycle No script for "version" in "@valexpress/common-frontend-vue", continuing
+48 silly lifecycle No script for "version" in "@valexpress/common-backend", continuing
+49 silly lifecycle No script for "version" in "@valexpress/users-backend", continuing
+50 silly lifecycle No script for "version" in "@valexpress/users-frontend-core", continuing
+51 silly lifecycle No script for "preversion" in "@valexpress/users-frontend-vue", continuing
+52 verbose version @valexpress/users-frontend-vue has no lockfile. Skipping lockfile update.
+53 silly lifecycle No script for "version" in "@valexpress/users-frontend-vue", continuing
+54 silly lifecycle No script for "version" in "root", continuing
+55 verbose version Updating root package-lock.json
+56 error Error: Command failed with exit code 1: npm install --package-lock-only --ignore-scripts
+56 error npm ERR! Cannot read properties of null (reading 'isDescendantOf')
+56 error
+56 error npm ERR! A complete log of this run can be found in: /home/alex-sondeos/.npm/_logs/2024-08-12T23_07_40_463Z-debug-0.log
+56 error     at makeError (/home/alex-sondeos/Desktop/vuelders/valexpress/node_modules/execa/lib/error.js:59:11)
+56 error     at handlePromise (/home/alex-sondeos/Desktop/vuelders/valexpress/node_modules/execa/index.js:114:26)
+56 error     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+56 error     at async VersionCommand.updatePackageVersions (/home/alex-sondeos/Desktop/vuelders/valexpress/node_modules/lerna/dist/index.js:9890:13)
+56 error     at async Promise.all (index 0)

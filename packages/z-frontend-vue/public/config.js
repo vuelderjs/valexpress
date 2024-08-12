@@ -1,0 +1,1 @@
+var DYNAMIC_CONFIGURATION_URL = "docs/dynamic_configurations.json"

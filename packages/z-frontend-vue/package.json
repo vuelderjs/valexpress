@@ -1,0 +1,42 @@
+{
+  "name": "@valexpress/z-frontend-vue",
+  "author": "Alex Valdiviezo & vuelderjs team",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "front": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.11.3",
+    "@mdi/font": "7.4.47",
+    "@vuelder.js/common-frontend-core": "file:../common-frontend-core",
+    "@vuelder.js/common-frontend-vue": "file:../common-frontend-vue",
+    "@vuelder.js/users-frontend-core": "file:../users-frontend-core",
+    "@vuelder.js/users-frontend-vue": "file:../users-frontend-vue",
+    "deepmerge": "^4.3.1",
+    "graphql": "^16.9.0",
+    "graphql-tag": "^2.12.6",
+    "react": "^18.3.1",
+    "roboto-fontface": "*",
+    "vite-plugin-graphql-loader": "^4.0.2",
+    "vue": "^3.4.36",
+    "vue-i18n": "^9.13.1",
+    "vue-router": "^4.4.3",
+    "vuetify": "^3.6.11",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@babel/types": "^7.24.7",
+    "@types/node": "^20.14.10",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "sass": "1.77.6",
+    "typescript": "^5.4.2",
+    "unplugin-fonts": "^1.1.1",
+    "unplugin-vue-components": "^0.27.2",
+    "vite": "^5.3.3",
+    "vite-plugin-vuetify": "^2.0.3",
+    "vue-tsc": "^2.0.26"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "@valexpress/common-frontend-core",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "main": "dist/valexpress-common-frontend-core.umd.js",
   "module": "dist/valexpress-common-frontend-core.es.js",
   "type": "module",

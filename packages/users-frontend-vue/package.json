@@ -1,0 +1,26 @@
+{
+  "name": "@valexpress/users-frontend-vue",
+  "version": "0.3.0",
+  "type": "module",
+  "main": "dist/valexpress-users-frontend-vue.umd.js",
+  "module": "dist/valexpress-users-frontend-vue.es.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@valexpress/common-frontend-core": "file:../common-frontend-core",
+    "@valexpress/users-frontend-core": "file:../users-frontend-core",
+    "vue": "3.4.35",
+    "vuetify": "3.6.11",
+    "vue-router": "4.4.3"
+  },
+  "devDependencies": {
+    "vite-plugin-graphql-loader": "4.0.2",
+    "@vitejs/plugin-vue": "^5.1.2",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.0",
+    "vue-tsc": "^2.0.29"
+  }
+}

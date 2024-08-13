@@ -44,8 +44,7 @@ export default {
                 if(user._id != id) throw new Error('Unauthorized')
             }
             if(user._id != id) await AuthenticationContext.hasPermissions(user, [USER_UPDATE])
-            if(payload.role){ 
-                if(user.createdBy == 'system') throw new Error('Unauthorized')
+            if(payload.role){
                 await AuthenticationContext.hasPermissions(user, [ROLE_ASSIGN])
             }
             return UserService.updateUser(id, payload)

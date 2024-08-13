@@ -3,7 +3,7 @@
     "private": true,
     "version": "1.0.0",
     "description": "",
-    "main": "index.ts",
+    "main": "src/index.ts",
     "scripts": {
         "compile": "tsc",
         "start": "npm run compile && node --env-file=.env ./dist/index.ts",

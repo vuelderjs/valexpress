@@ -18,7 +18,15 @@
                 <v-card-text>
                     <v-row class="ma-0 pa-0">
                         <v-col cols="12" class="my-0 py-0">
+                            <v-text-field
+                                v-if="props.user.createdBy == 'system'"
+                                label="Rol"
+                                :modelValue="props.user.role"
+                                prepend-inner-icon="mdi-security"
+                                disabled
+                            ></v-text-field>
                             <v-autocomplete
+                                v-else
                                 v-model="updateForm.role"
                                 :items="props.roles.map(role => ({ title: role.name, value: role.id }))"
                                 label="Rol"
@@ -89,7 +97,7 @@
     const formValue = ref(false)
     const formComponent = ref<HTMLFormElement | null>(null)
 
-    type User = {id: string, email: string, role: string, name: string, surname: string, enable: boolean}
+    type User = {id: string, createdBy: string, email: string, role: string, name: string, surname: string, enable: boolean}
 
     const props = defineProps<{
         user: User,
@@ -102,13 +110,13 @@
     }>()
 
     const updateForm = reactive<{
-        role: string
+        role: string | undefined
         email: string
         name: string
         surname: string
         enable: boolean
     }>({
-        role: props.roles.find(role => role.name == props.user.role)?.id || '',
+        role: props.user.createdBy != 'system' ? props.roles.find(role => role.name == props.user.role)?.id || undefined : undefined,
         email: props.user.email,
         name: props.user.name,
         surname: props.user.surname,

@@ -117,6 +117,10 @@ export default class UserService{
             throw new Error('Can not disable system user')
         }
 
+        if(user.role && _user?.createdBy === 'system'){
+            throw new Error('Can not assign role to system user')
+        }
+
         const __user = await User.findOneAndUpdate(query, user, { new: true }).populate({
             path: 'role',
             populate: { path: 'permissions' }

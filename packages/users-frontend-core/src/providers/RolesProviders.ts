@@ -3,55 +3,45 @@ import permissionsFetchGraphql from './graphql/permissionsFetchGraphql'
 import roleUpdateGraphql from './graphql/roleUpdateGraphql'
 import roleCreateGraphql from './graphql/roleCreateGraphql'
 import roleDeleteGraphql from './graphql/roleDeleteGraphql'
+import UsersBaseProviders from './UsersBaseProviders'
 
-class RolesProviders {
-    public gqlc: any
-
+class RolesProviders extends UsersBaseProviders{
     constructor(){
-        this.gqlc = null
+        super()
     }
 
     public setGqlc(gqlc: any) {
-        this.gqlc = gqlc
+        super.setGqlc(gqlc)
+    }
+
+    public setUnauthenticationUrlRedirect(url: string) {
+        super.setUnauthenticationUrlRedirect(url)
     }
 
     public async roleFetch() {
-        return await this.gqlc.query({
-            query: roleFetchGraphql,
-            fetchPolicy: 'network-only'
-        })
+        return await super.createPetition('query', roleFetchGraphql, {})
     }
 
     public async permissionsFetch(){
-        return await this.gqlc.query({
-            query: permissionsFetchGraphql,
-            fetchPolicy: 'network-only'
-        })
+        return await super.createPetition('query', permissionsFetchGraphql, {})
     }
 
     public async roleUpdate(id: string, role: {name?: string, permissions?: string[]}) {
-        return await this.gqlc.mutate({
-            mutation: roleUpdateGraphql,
-            variables: {
-                id,
-                payload: { ...role }
-            }
+        return await super.createPetition('mutation', roleUpdateGraphql, {
+            id,
+            payload: { ...role }
         })
     }
 
     public async roleCreate(role: {name: string, permissions: string[]}) {
-        return await this.gqlc.mutate({
-            mutation: roleCreateGraphql,
-            variables: {
-                payload: { ...role }
-            }
+        return await super.createPetition('mutation', roleCreateGraphql, {
+            payload: { ...role }
         })
     }
 
     public async roleDelete(id: string) {
-        return await this.gqlc.mutate({
-            mutation: roleDeleteGraphql,
-            variables: { id }
+        return await super.createPetition('mutation', roleDeleteGraphql, {
+            id
         })
     }
 }

@@ -3,6 +3,7 @@ type User {
     email: String!
     role: Role!
     name: String
+    createdBy: String
     surname: String
     enable: Boolean
 }

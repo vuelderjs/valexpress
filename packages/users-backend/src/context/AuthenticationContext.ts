@@ -14,6 +14,8 @@ export default class AuthenticationContext {
 
         if(!user) throw UnauthenticatedError
 
+        if(!user.enable) throw UnauthenticatedError
+
         if(!permission) return user
         
         const hasPermission = user?.role?.permissions?.some((_permission) => permission.includes(_permission.name))

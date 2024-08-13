@@ -24,4 +24,8 @@ import { RolesProviders, UsersProviders } from '@valexpress/users-frontend-core/
 UsersProviders.setGqlc(apolloClient)
 RolesProviders.setGqlc(apolloClient)
 
+for(const provider of [UsersProviders, RolesProviders]) {
+    provider.setGqlc(apolloClient)
+}
+
 app.mount('#app')

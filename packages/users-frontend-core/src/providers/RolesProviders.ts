@@ -1,10 +1,8 @@
-import gql from 'graphql-tag'
-
-import roleFetchGraphql from './graphql/roleFetch.graphql'
-import permissionsFetchGraphql from './graphql/permissionsFetch.graphql'
-import roleUpdateGraphql from './graphql/roleUpdate.graphql'
-import roleCreateGraphql from './graphql/roleCreate.graphql'
-import roleDeleteGraphql from './graphql/roleDelete.graphql'
+import roleFetchGraphql from './graphql/roleFetchGraphql'
+import permissionsFetchGraphql from './graphql/permissionsFetchGraphql'
+import roleUpdateGraphql from './graphql/roleUpdateGraphql'
+import roleCreateGraphql from './graphql/roleCreateGraphql'
+import roleDeleteGraphql from './graphql/roleDeleteGraphql'
 
 export default class RolesProviders {
 
@@ -16,21 +14,21 @@ export default class RolesProviders {
 
     public static async roleFetch() {
         return await RolesProviders._gqlc.query({
-            query: gql`${roleFetchGraphql}`,
+            query: roleFetchGraphql,
             fetchPolicy: 'network-only'
         })
     }
 
     public static async permissionsFetch(){
         return await RolesProviders._gqlc.query({
-            query: gql`${permissionsFetchGraphql}`,
+            query: permissionsFetchGraphql,
             fetchPolicy: 'network-only'
         })
     }
 
     public static async roleUpdate(id: string, role: {name?: string, permissions?: string[]}) {
         return await RolesProviders._gqlc.mutate({
-            mutation: gql`${roleUpdateGraphql}`,
+            mutation: roleUpdateGraphql,
             variables: {
                 id,
                 payload: { ...role }
@@ -40,7 +38,7 @@ export default class RolesProviders {
 
     public static async roleCreate(role: {name: string, permissions: string[]}) {
         return await RolesProviders._gqlc.mutate({
-            mutation: gql`${roleCreateGraphql}`,
+            mutation: roleCreateGraphql,
             variables: {
                 payload: { ...role }
             }
@@ -49,7 +47,7 @@ export default class RolesProviders {
 
     public static async roleDelete(id: string) {
         return await RolesProviders._gqlc.mutate({
-            mutation: gql`${roleDeleteGraphql}`,
+            mutation: roleDeleteGraphql,
             variables: { id }
         })
     }

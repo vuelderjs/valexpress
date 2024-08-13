@@ -1,5 +1,0 @@
-mutation roleDelete($id: ID!){
-    roleDelete(id: $id){
-        id
-    }
-}

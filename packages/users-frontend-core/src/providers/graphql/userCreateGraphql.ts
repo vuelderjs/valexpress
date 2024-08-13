@@ -1,6 +1,8 @@
-query userFetch($filters: UserFetchFiltersInput, $sortBy: String, $sortDesc: Boolean, $limit: Int, $page: Int){
-    userFetch(filters: $filters, sortBy: $sortBy, sortDesc: $sortDesc, limit: $limit, page: $page){
-        docs{
+import gql from "graphql-tag"
+
+export default gql`
+    mutation userCreate($payload: UserCreateInput!){
+        userCreate(payload: $payload){
             id
             email
             role{
@@ -15,8 +17,5 @@ query userFetch($filters: UserFetchFiltersInput, $sortBy: String, $sortDesc: Boo
             surname
             enable
         }
-        page
-        limit
-        total
     }
-}
+`

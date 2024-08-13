@@ -1,3 +1,0 @@
-query userLogin($payload: UserLoginInput!){
-    userLogin(payload: $payload)
-}

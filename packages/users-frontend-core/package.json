@@ -1,6 +1,6 @@
 {
   "name": "@valexpress/users-frontend-core",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "main": "dist/valexpress-users-frontend-core.umd.js",
   "module": "dist/valexpress-users-frontend-core.es.js",
   "type": "module",

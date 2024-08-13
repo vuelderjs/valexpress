@@ -4,30 +4,33 @@ import roleUpdateGraphql from './graphql/roleUpdateGraphql'
 import roleCreateGraphql from './graphql/roleCreateGraphql'
 import roleDeleteGraphql from './graphql/roleDeleteGraphql'
 
-export default class RolesProviders {
+class RolesProviders {
+    public gqlc: any
 
-    private static _gqlc: any = null
-
-    public static setGqlc(gqlc: any) {
-        RolesProviders._gqlc = gqlc
+    constructor(){
+        this.gqlc = null
     }
 
-    public static async roleFetch() {
-        return await RolesProviders._gqlc.query({
+    public setGqlc(gqlc: any) {
+        this.gqlc = gqlc
+    }
+
+    public async roleFetch() {
+        return await this.gqlc.query({
             query: roleFetchGraphql,
             fetchPolicy: 'network-only'
         })
     }
 
-    public static async permissionsFetch(){
-        return await RolesProviders._gqlc.query({
+    public async permissionsFetch(){
+        return await this.gqlc.query({
             query: permissionsFetchGraphql,
             fetchPolicy: 'network-only'
         })
     }
 
-    public static async roleUpdate(id: string, role: {name?: string, permissions?: string[]}) {
-        return await RolesProviders._gqlc.mutate({
+    public async roleUpdate(id: string, role: {name?: string, permissions?: string[]}) {
+        return await this.gqlc.mutate({
             mutation: roleUpdateGraphql,
             variables: {
                 id,
@@ -36,8 +39,8 @@ export default class RolesProviders {
         })
     }
 
-    public static async roleCreate(role: {name: string, permissions: string[]}) {
-        return await RolesProviders._gqlc.mutate({
+    public async roleCreate(role: {name: string, permissions: string[]}) {
+        return await this.gqlc.mutate({
             mutation: roleCreateGraphql,
             variables: {
                 payload: { ...role }
@@ -45,10 +48,14 @@ export default class RolesProviders {
         })
     }
 
-    public static async roleDelete(id: string) {
-        return await RolesProviders._gqlc.mutate({
+    public async roleDelete(id: string) {
+        return await this.gqlc.mutate({
             mutation: roleDeleteGraphql,
             variables: { id }
         })
     }
 }
+
+const rolesProviders = new RolesProviders()
+
+export default rolesProviders

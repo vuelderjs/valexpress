@@ -5,19 +5,23 @@ import userCreateGraphql from './graphql/userCreateGraphql'
 import userGetSession from './graphql/userGetSessionGraphql'
 import { UserGetSession } from './schemas/User.schema'
 
-export default class UsersProviders {
+class UsersProviders {
 
-    private static _gqlc: any = null
+    public gqlc: any
 
-    public static setGqlc(gqlc: any) {
-        UsersProviders._gqlc = gqlc
+    constructor(){
+        this.gqlc = null
     }
 
-    public static async userFetch(
+    public setGqlc(gqlc: any) {
+        this.gqlc = gqlc
+    }
+
+    public async userFetch(
         filters: {email?: string, name?: string, surname?: string, role?: string, createdBy?: string, enable?: boolean},
         sortBy: string, sortDesc: boolean, limit: number = 10, page: number = 1
     ){
-        return await UsersProviders._gqlc.query({
+        return await this.gqlc.query({
             query: userFetchGraphql,
             variables: {
                 filters,
@@ -30,8 +34,8 @@ export default class UsersProviders {
         })
     }
 
-    public static async userUpdate(id: string, user: {email?: string, password?: string, role?: string, name?: string, surname?: string, enable?: boolean}) {
-        return await UsersProviders._gqlc.mutate({
+    public async userUpdate(id: string, user: {email?: string, password?: string, role?: string, name?: string, surname?: string, enable?: boolean}) {
+        return await this.gqlc.mutate({
             mutation: userUpdateGraphql,
             variables: {
                 id,
@@ -40,8 +44,8 @@ export default class UsersProviders {
         })
     }
 
-    public static async userCreate(user: {email: string, password: string, role: string, name?: string, surname?: string, enable?: boolean}) {
-        return await UsersProviders._gqlc.mutate({
+    public async userCreate(user: {email: string, password: string, role: string, name?: string, surname?: string, enable?: boolean}) {
+        return await this.gqlc.mutate({
             mutation: userCreateGraphql,
             variables: {
                 payload: { ...user }
@@ -49,8 +53,8 @@ export default class UsersProviders {
         })
     }
 
-    public static async userLogin(email: string, password: string) {
-        return await UsersProviders._gqlc.query({
+    public async userLogin(email: string, password: string) {
+        return await this.gqlc.query({
             query: userLoginGraphql,
             variables: {
                 payload: { email, password }
@@ -58,9 +62,12 @@ export default class UsersProviders {
         })
     }
 
-    public static async userGetSession(): Promise<UserGetSession> {
-        return await UsersProviders._gqlc.query({
+    public async userGetSession(): Promise<UserGetSession> {
+        return await this.gqlc.query({
             query: userGetSession
         })
     }
 }
+
+const usersProviders = new UsersProviders()
+export default usersProviders

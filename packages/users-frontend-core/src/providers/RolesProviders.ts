@@ -1,3 +1,5 @@
+import gql from 'graphql-tag'
+
 import roleFetchGraphql from './graphql/roleFetch.graphql'
 import permissionsFetchGraphql from './graphql/permissionsFetch.graphql'
 import roleUpdateGraphql from './graphql/roleUpdate.graphql'
@@ -14,21 +16,21 @@ export default class RolesProviders {
 
     public static async roleFetch() {
         return await RolesProviders._gqlc.query({
-            query: roleFetchGraphql,
+            query: gql`${roleFetchGraphql}`,
             fetchPolicy: 'network-only'
         })
     }
 
     public static async permissionsFetch(){
         return await RolesProviders._gqlc.query({
-            query: permissionsFetchGraphql,
+            query: gql`${permissionsFetchGraphql}`,
             fetchPolicy: 'network-only'
         })
     }
 
     public static async roleUpdate(id: string, role: {name?: string, permissions?: string[]}) {
         return await RolesProviders._gqlc.mutate({
-            mutation: roleUpdateGraphql,
+            mutation: gql`${roleUpdateGraphql}`,
             variables: {
                 id,
                 payload: { ...role }
@@ -38,7 +40,7 @@ export default class RolesProviders {
 
     public static async roleCreate(role: {name: string, permissions: string[]}) {
         return await RolesProviders._gqlc.mutate({
-            mutation: roleCreateGraphql,
+            mutation: gql`${roleCreateGraphql}`,
             variables: {
                 payload: { ...role }
             }
@@ -47,7 +49,7 @@ export default class RolesProviders {
 
     public static async roleDelete(id: string) {
         return await RolesProviders._gqlc.mutate({
-            mutation: roleDeleteGraphql,
+            mutation: gql`${roleDeleteGraphql}`,
             variables: { id }
         })
     }

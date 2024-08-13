@@ -1,3 +1,5 @@
+import gql from 'graphql-tag'
+
 import userLoginGraphql from './graphql/userLogin.graphql'
 import userFetchGraphql from './graphql/userFetch.graphql'
 import userUpdateGraphql from './graphql/userUpdate.graphql'
@@ -18,7 +20,7 @@ export default class UsersProviders {
         sortBy: string, sortDesc: boolean, limit: number = 10, page: number = 1
     ){
         return await UsersProviders._gqlc.query({
-            query: userFetchGraphql,
+            query: gql`${userFetchGraphql}`,
             variables: {
                 filters,
                 sortBy,
@@ -32,7 +34,7 @@ export default class UsersProviders {
 
     public static async userUpdate(id: string, user: {email?: string, password?: string, role?: string, name?: string, surname?: string, enable?: boolean}) {
         return await UsersProviders._gqlc.mutate({
-            mutation: userUpdateGraphql,
+            mutation: gql`${userUpdateGraphql}`,
             variables: {
                 id,
                 payload: { ...user }
@@ -42,7 +44,7 @@ export default class UsersProviders {
 
     public static async userCreate(user: {email: string, password: string, role: string, name?: string, surname?: string, enable?: boolean}) {
         return await UsersProviders._gqlc.mutate({
-            mutation: userCreateGraphql,
+            mutation: gql`${userCreateGraphql}`,
             variables: {
                 payload: { ...user }
             }
@@ -51,7 +53,7 @@ export default class UsersProviders {
 
     public static async userLogin(email: string, password: string) {
         return await UsersProviders._gqlc.query({
-            query: userLoginGraphql,
+            query: gql`${userLoginGraphql}`,
             variables: {
                 payload: { email, password }
             }
@@ -60,7 +62,7 @@ export default class UsersProviders {
 
     public static async userGetSession(): Promise<UserGetSession> {
         return await UsersProviders._gqlc.query({
-            query: userGetSession
+            query: gql`${userGetSession}`
         })
     }
 }
